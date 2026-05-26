@@ -1,0 +1,9 @@
+# Dependencias (Carpeta pesada que se genera con npm install)
+node_modules/
+
+# Next.js (Carpeta de compilación y caché)
+.next/
+
+# Logs de errores (En caso de que aparezcan al instalar dependencias)
+npm-debug.log*
+pnpm-debug.log*

@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "./default_shadcn_theme.css";
+@import "./theme.css";
+@import "tw-animate-css";
+
+@source '../**/*.{js,ts,jsx,tsx}';
