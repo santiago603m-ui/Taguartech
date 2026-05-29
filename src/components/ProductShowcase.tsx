@@ -10,8 +10,11 @@ export function ProductShowcase() {
   const router = useRouter();
 
   return (
-    <section id="coleccion" className="py-16 bg-[#FAEDCD]">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="coleccion" className="relative py-16">
+      {/* Smooth gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-ivory/50 via-sand/20 to-cream" />
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-14">
           <div className="max-w-xl">
@@ -19,7 +22,7 @@ export function ProductShowcase() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-2xl md:text-3xl font-bold text-title mb-4"
+              className="text-2xl md:text-3xl font-bold text-espresso mb-4"
             >
               Vitrina Destacada
             </motion.h2>
@@ -28,7 +31,7 @@ export function ProductShowcase() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-title/70"
+              className="text-walnut/80"
             >
               Cada pieza de nuestra colección lleva consigo horas de dedicación
               y el alma de quien la esculpió.
@@ -36,7 +39,7 @@ export function ProductShowcase() {
           </div>
           <Link
             href="/productos"
-            className="hidden md:inline-flex items-center gap-2 px-6 py-3 border border-title text-title rounded-full hover:bg-title hover:text-white transition-colors mt-6 md:mt-0"
+            className="hidden md:inline-flex items-center gap-2 px-6 py-3 border border-espresso text-espresso rounded-full hover:bg-espresso hover:text-cream transition-colors mt-6 md:mt-0"
           >
             Ver toda la colección
           </Link>
@@ -52,7 +55,7 @@ export function ProductShowcase() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               onClick={() => router.push(`/producto/${product.id}`)}
-              className="group relative aspect-[3/4] sm:aspect-auto sm:h-[480px] md:h-[440px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer border-2 border-earth/20"
+              className="group relative aspect-[3/4] sm:aspect-auto sm:h-[480px] md:h-[440px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer border border-sand/50"
             >
               {/* Background Image */}
               <Image
@@ -65,19 +68,13 @@ export function ProductShowcase() {
 
 
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a0e0a]/80 via-[#1a0e0a]/20 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-espresso/20 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
 
               {/* Badge */}
               {product.badge && (
                 <div className="absolute top-4 left-4 z-20">
                   <span
-                    className="text-xs font-semibold px-3 py-1 rounded-full text-[#3E2723]"
-                    style={{
-                      background: "rgba(249,246,240,0.82)",
-                      backdropFilter: "blur(8px)",
-                      WebkitBackdropFilter: "blur(8px)",
-                      border: "1px solid rgba(255,255,255,0.5)",
-                    }}
+                    className="text-xs font-semibold px-3 py-1 rounded-full text-espresso bg-cream/80 backdrop-blur-md border border-white/50"
                   >
                     {product.badge}
                   </span>
@@ -86,27 +83,15 @@ export function ProductShowcase() {
 
               {/* Bottom glass info panel */}
               <div
-                className="absolute bottom-0 left-0 right-0 z-10 p-5"
-                style={{
-                  background: "rgba(255,255,255,0.12)",
-                  backdropFilter: "blur(14px)",
-                  WebkitBackdropFilter: "blur(14px)",
-                  borderTop: "1px solid rgba(255,255,255,0.22)",
-                }}
+                className="absolute bottom-0 left-0 right-0 z-10 p-5 bg-white/10 backdrop-blur-md border-t border-white/20"
               >
-                <p className="text-[#f0c990] text-xs font-medium uppercase tracking-widest mb-1">
+                <p className="text-amber text-xs font-medium uppercase tracking-widest mb-1">
                   {product.material}
                 </p>
                 <div className="flex items-end justify-between">
                   <h3 className="text-white font-bold text-lg leading-tight">{product.name}</h3>
                   <span
-                    className="text-sm font-semibold px-2.5 py-1 rounded-lg ml-3 whitespace-nowrap text-white"
-                    style={{
-                      background: "rgba(188,108,37,0.75)",
-                      backdropFilter: "blur(6px)",
-                      WebkitBackdropFilter: "blur(6px)",
-                      border: "1px solid rgba(255,255,255,0.2)",
-                    }}
+                    className="text-sm font-semibold px-2.5 py-1 rounded-lg ml-3 whitespace-nowrap text-white bg-sienna/80 backdrop-blur-sm border border-white/20"
                   >
                     {product.price}
                   </span>
@@ -121,7 +106,7 @@ export function ProductShowcase() {
         <div className="mt-10 text-center md:hidden">
           <Link
             href="/productos"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-title text-title rounded-full hover:bg-title hover:text-white transition-colors w-full justify-center"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-espresso text-espresso rounded-full hover:bg-espresso hover:text-cream transition-colors w-full justify-center"
           >
             Ver toda la colección
           </Link>

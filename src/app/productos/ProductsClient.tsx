@@ -8,14 +8,16 @@ import { Filter } from "lucide-react";
 import { products, getProductsByMaterial } from "@/data/products";
 import type { Product } from "@/data/products";
 
-type FilterType = "Todos" | "Tagua" | "Madera" | "Hueso";
+type FilterType = string;
 
-const filters: FilterType[] = ["Todos", "Tagua", "Madera", "Hueso"];
+const filters: FilterType[] = ["Todos", ...Array.from(new Set(products.map(p => p.material)))];
 
 const materialColors: Record<string, string> = {
-  Tagua: "bg-[#f0e6d3] text-[#7a4f1e]",
-  Madera: "bg-[#e8ddd0] text-[#5D4037]",
-  Hueso: "bg-[#ede9e3] text-[#3E2723]",
+  "Tagua": "bg-ivory text-walnut",
+  "Madera": "bg-amber/20 text-espresso",
+  "Hueso": "bg-cream text-espresso",
+  "Tagua y Madera": "bg-amber/15 text-walnut",
+  "Madera y Tagua": "bg-amber/15 text-walnut",
 };
 
 export default function ProductsPage() {
@@ -33,13 +35,13 @@ export default function ProductsPage() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <span className="text-[#BC6C25] font-semibold tracking-wider text-sm uppercase mb-2 block">
+          <span className="text-sienna font-semibold tracking-wider text-sm uppercase mb-2 block">
             Vitrina Completa
           </span>
-          <h1 className="text-3xl md:text-5xl font-bold text-moss mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-espresso mb-4">
             Nuestra Colección
           </h1>
-          <p className="text-lg text-moss/70 max-w-xl leading-relaxed">
+          <p className="text-lg text-walnut/80 max-w-xl leading-relaxed">
             Cada pieza es única, tallada a mano con materiales orgánicos de origen responsable.
             No existen dos iguales.
           </p>
@@ -53,7 +55,7 @@ export default function ProductsPage() {
           className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10"
         >
           <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 no-scrollbar">
-            <span className="flex items-center gap-1.5 text-moss/70 text-sm font-medium whitespace-nowrap mr-2">
+            <span className="flex items-center gap-1.5 text-espresso/60 text-sm font-medium whitespace-nowrap mr-2">
               <Filter size={15} /> Filtrar:
             </span>
             {filters.map((f) => (
@@ -62,8 +64,8 @@ export default function ProductsPage() {
                 onClick={() => setActiveFilter(f)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                   activeFilter === f
-                    ? "bg-moss text-cream shadow-md"
-                    : "bg-white text-moss/70 border border-moss/20 hover:border-moss/40"
+                    ? "bg-walnut text-cream shadow-md"
+                    : "bg-white/70 text-espresso/60 border border-sand hover:border-walnut/30"
                 }`}
               >
                 {f}
@@ -75,7 +77,7 @@ export default function ProductsPage() {
               </button>
             ))}
           </div>
-          <span className="ml-auto text-moss/60 text-sm hidden sm:block">
+          <span className="ml-auto text-espresso/50 text-sm hidden sm:block">
             {filtered.length} {filtered.length === 1 ? "pieza" : "piezas"}
           </span>
         </motion.div>
@@ -92,19 +94,19 @@ export default function ProductsPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20 rounded-3xl bg-moss text-cream p-8 md:p-14 flex flex-col lg:flex-row items-center lg:justify-between gap-8 text-center lg:text-left"
+          className="mt-20 rounded-3xl bg-gradient-to-br from-walnut to-espresso text-cream p-8 md:p-14 flex flex-col lg:flex-row items-center lg:justify-between gap-8 text-center lg:text-left"
         >
           <div className="max-w-xl">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
               ¿Buscas algo especial?
             </h2>
-            <p className="text-[#F9F6F0]/70 text-lg">
+            <p className="text-cream/60 text-lg">
               Diseñamos piezas a medida. Cuéntanos tu idea y un artesano te contactará para hacerla realidad.
             </p>
           </div>
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-email-modal"))}
-            className="shrink-0 w-full sm:w-auto px-8 py-4 bg-earth text-cream font-bold rounded-full hover:bg-earth/90 transition-all shadow-lg hover:shadow-xl"
+            className="shrink-0 w-full sm:w-auto px-8 py-4 bg-sienna text-white font-bold rounded-full hover:bg-terracotta transition-all shadow-lg hover:shadow-xl"
           >
             Solicitar pieza a medida
           </button>
@@ -116,12 +118,13 @@ export default function ProductsPage() {
 }
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
+  const colorClass = materialColors[product.material] || "bg-ivory text-walnut";
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.06, duration: 0.45 }}
-      className="group relative rounded-2xl overflow-hidden border-2 border-earth/20 shadow-xl hover:shadow-2xl transition-shadow duration-500 cursor-pointer bg-white"
+      className="group relative rounded-2xl overflow-hidden border border-sand/50 shadow-lg hover:shadow-xl transition-shadow duration-500 cursor-pointer bg-white/70 backdrop-blur-sm"
     >
       <Link href={`/producto/${product.id}`} className="block">
         {/* Image */}
@@ -139,12 +142,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           {product.badge && (
             <div className="absolute top-3 left-3 z-10">
               <span
-                className="text-xs font-semibold px-3 py-1 rounded-full text-[#3E2723]"
-                style={{
-                  background: "rgba(249,246,240,0.88)",
-                  backdropFilter: "blur(8px)",
-                  border: "1px solid rgba(255,255,255,0.5)",
-                }}
+                className="text-xs font-semibold px-3 py-1 rounded-full text-espresso bg-cream/80 backdrop-blur-md border border-white/50"
               >
                 {product.badge}
               </span>
@@ -157,18 +155,18 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         {/* Info */}
         <div className="p-5">
           <span
-            className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${materialColors[product.material]}`}
+            className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${colorClass}`}
           >
             {product.material}
           </span>
-          <h3 className="text-moss font-bold text-lg mt-2 mb-1 leading-tight">
+          <h3 className="text-espresso font-bold text-lg mt-2 mb-1 leading-tight">
             {product.name}
           </h3>
-          <p className="text-moss/70 text-sm mb-3 line-clamp-2 leading-relaxed">
+          <p className="text-walnut/70 text-sm mb-3 line-clamp-2 leading-relaxed">
             {product.shortDescription}
           </p>
           <div className="flex items-center justify-between">
-            <span className="text-earth font-bold text-lg">{product.price}</span>
+            <span className="text-sienna font-bold text-lg">{product.price}</span>
           </div>
         </div>
       </Link>

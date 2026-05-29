@@ -2,29 +2,39 @@
 
 :root {
   --font-size: 16px;
-  --background: #F9F6F0;
-  --foreground: #283618;
-  --card: #ffffff;
-  --card-foreground: #283618;
-  --popover: #ffffff;
-  --popover-foreground: #283618;
-  --primary: #283618;
-  --primary-foreground: #FEFAE0;
-  --secondary: #606C38;
-  --secondary-foreground: #F9F6F0;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #BC6C25;
-  --accent-foreground: #FEFAE0;
+
+  /* ── Nueva paleta artesanal ── */
+  --cream: #FAF6F0;
+  --ivory: #F5EDE3;
+  --sand: #E8DDD0;
+  --amber: #D4A06A;
+  --sienna: #B5713B;
+  --terracotta: #C4784A;
+  --walnut: #6B4226;
+  --espresso: #3A2218;
+  --moss: #7A8B6F;
+  --moss-dark: #5A6B4F;
+
+  /* ── Aliases semánticos ── */
+  --background: var(--cream);
+  --foreground: var(--espresso);
+  --card: var(--ivory);
+  --card-foreground: var(--espresso);
+  --popover: var(--cream);
+  --popover-foreground: var(--espresso);
+  --primary: var(--walnut);
+  --primary-foreground: var(--cream);
+  --secondary: var(--moss);
+  --secondary-foreground: var(--cream);
+  --muted: var(--sand);
+  --muted-foreground: #8a7968;
+  --accent: var(--sienna);
+  --accent-foreground: var(--cream);
   --destructive: #ef4444;
   --destructive-foreground: #f8fafc;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #606C38;
-  --ocre: #DDA15E;
-  --moss: #283618;
-  --earth: #BC6C25;
-  --cream: #FEFAE0;
+  --border: var(--sand);
+  --input: var(--sand);
+  --ring: var(--sienna);
   --radius: 0.5rem;
 }
 
@@ -92,11 +102,33 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --color-ocre: var(--ocre);
-  --color-moss: var(--moss);
-  --color-earth: var(--earth);
+
+  /* ── Paleta artesanal ── */
   --color-cream: var(--cream);
-  --color-title: #5D4037;
+  --color-ivory: var(--ivory);
+  --color-sand: var(--sand);
+  --color-amber: var(--amber);
+  --color-sienna: var(--sienna);
+  --color-terracotta: var(--terracotta);
+  --color-walnut: var(--walnut);
+  --color-espresso: var(--espresso);
+  --color-moss: var(--moss);
+  --color-moss-dark: var(--moss-dark);
+
+  /* ── Aliases de retrocompatibilidad ── */
+  --color-bone: var(--cream);
+  --color-tagua: var(--ivory);
+  --color-wood-light: var(--amber);
+  --color-wood: var(--sienna);
+  --color-wood-dark: var(--walnut);
+  --color-wood-deep: var(--espresso);
+  --color-green-light: var(--sand);
+  --color-green: var(--moss);
+  --color-green-dark: var(--moss-dark);
+  --color-ocre: var(--amber);
+  --color-earth: var(--sienna);
+  --color-title: var(--espresso);
+
   --font-sans: var(--font-montserrat);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

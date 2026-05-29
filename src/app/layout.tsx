@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${montserrat.variable} font-sans antialiased`}>
-        <div className="min-h-screen bg-[#F9F6F0] font-sans selection:bg-[#606C38]/20 selection:text-[#3E2723] ">
+        <div className="min-h-screen bg-cream text-espresso font-sans selection:bg-sienna/20 selection:text-espresso ">
           <Header />
           <main>{children}</main>
           <Footer />

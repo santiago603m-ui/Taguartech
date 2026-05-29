@@ -34,7 +34,7 @@ export function Header() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled || isMobileMenuOpen
-          ? "backdrop-blur-xl bg-[#F9F6F0]/70 shadow-[0_8px_32px_rgba(0,0,0,0.05)] border-b border-white/40 py-3"
+          ? "backdrop-blur-xl bg-cream/80 shadow-[0_8px_32px_rgba(58,34,24,0.06)] border-b border-sand/60 py-3"
           : "bg-transparent py-5"
       } ${!isScrolled && !isMobileMenuOpen ? "bg-transparent md:bg-transparent" : ""}`}
     >
@@ -42,7 +42,7 @@ export function Header() {
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Link href="/" className="text-xl md:text-2xl font-bold text-[#3E2723] tracking-wider">
+          <Link href="/" className="text-xl md:text-2xl font-bold text-espresso tracking-wider">
             TAGUARTE-CH
           </Link>
         </div>
@@ -58,8 +58,8 @@ export function Header() {
                 href={item.href}
                 className={`text-sm font-medium transition-colors ${
                   isActive
-                    ? "text-[#606C38] border-b-2 border-[#606C38] pb-0.5"
-                    : "text-[#5D4037] hover:text-[#606C38]"
+                    ? "text-sienna border-b-2 border-sienna pb-0.5"
+                    : "text-walnut hover:text-sienna"
                 }`}
               >
                 {item.label}
@@ -72,7 +72,7 @@ export function Header() {
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-[#5D4037] hover:text-[#606C38] transition-colors"
+            className="text-walnut hover:text-sienna transition-colors"
             aria-label="Menú"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -86,14 +86,14 @@ export function Header() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="md:hidden absolute top-full left-0 w-full bg-[#F9F6F0] border-b border-[#5D4037]/10 shadow-lg"
+          className="md:hidden absolute top-full left-0 w-full bg-cream border-b border-sand/40 shadow-lg"
         >
           <div className="px-6 py-4 flex flex-col space-y-4">
             {navLinks.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-base font-medium text-[#5D4037] hover:text-[#606C38] transition-colors py-1"
+                className="text-base font-medium text-walnut hover:text-sienna transition-colors py-1"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}

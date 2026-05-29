@@ -8,9 +8,10 @@ export function Hero() {
   return (
     <section className="relative w-full min-h-screen lg:h-[90vh] flex items-center pt-20 pb-16 lg:py-20 overflow-hidden ">
 
-
-      {/* Background container - global bg */}
-      <div className="absolute inset-0 bg-[#fae6b6] " />
+      {/* Background — warm gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-amber/25 via-ivory to-cream" />
+      {/* Subtle radial glow */}
+      <div className="absolute top-0 right-0 w-[60%] h-[60%] bg-gradient-radial from-amber/10 to-transparent rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center ">
         {/* Text Content */}
@@ -20,21 +21,21 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-xl text-center md:text-left mx-auto md:mx-0"
         >
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-title leading-[1.1] mb-4 md:mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-espresso leading-[1.1] mb-4 md:mb-6">
             Naturaleza en <br className="hidden sm:block" /> Forma y Alma
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-moss/80 mb-6 md:mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-espresso/70 mb-6 md:mb-8 leading-relaxed">
             Descubre piezas únicas talladas a mano. Unimos el
             arte tradicional con el diseño contemporáneo a
             través de tagua, madera y hueso.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link href="/productos" className="w-full sm:w-auto px-8 py-4 bg-moss text-cream rounded-full font-medium hover:bg-moss/90 transition-all shadow-sm hover:shadow-md flex items-center justify-center ">
+            <Link href="/productos" className="w-full sm:w-auto px-8 py-4 bg-espresso text-cream rounded-full font-medium hover:bg-walnut transition-all shadow-sm hover:shadow-md flex items-center justify-center ">
               Explorar Colección
             </Link>
-            <Link href="/nosotros" className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-earth text-earth rounded-full font-medium hover:bg-earth/5 transition-all flex items-center justify-center ">
+            <Link href="/nosotros" className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-sienna text-sienna rounded-full font-medium hover:bg-sienna/10 transition-all flex items-center justify-center ">
               Nuestra Historia
             </Link>
           </div>
@@ -54,14 +55,14 @@ export function Hero() {
         >
           <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl ">
             <Image
-              src="/Assets/Tagua_Catira.jpeg"
+              src="/Assets/Inicio/tagua_catira.jpeg"
               alt="Artesano trabajando la madera"
               fill
               className="object-cover object-center "
               priority
             />
             {/* Soft overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#3E2723]/20 to-transparent mix-blend-overlay " />
+            <div className="absolute inset-0 bg-gradient-to-tr from-espresso/20 to-transparent mix-blend-overlay " />
           </div>
 
           {/* Decorative floating element */}
@@ -69,19 +70,19 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 bg-white p-4 sm:p-5 rounded-2xl shadow-xl border border-[#F9F6F0] z-10 "
+            className="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 bg-white/80 backdrop-blur-md p-4 sm:p-5 rounded-2xl shadow-xl border border-sand/60 z-10 "
           >
             <div className="flex items-center space-x-3 sm:space-x-4 ">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#f2dd9f] flex items-center justify-center ">
-                <span className="text-[#BC6C25] font-bold text-xl sm:text-2xl">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber/20 flex items-center justify-center ">
+                <span className="text-sienna font-bold text-xl sm:text-2xl">
                   100%
                 </span>
               </div>
               <div>
-                <p className="text-[#3E2723] font-bold text-xs sm:text-sm ">
+                <p className="text-espresso font-bold text-xs sm:text-sm ">
                   Hecho a mano
                 </p>
-                <p className="text-[#5D4037] text-[10px] sm:text-xs ">
+                <p className="text-walnut text-[10px] sm:text-xs ">
                   Piezas irrepetibles
                 </p>
               </div>

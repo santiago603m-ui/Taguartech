@@ -10,7 +10,7 @@ const materials = [
     description:
       "Conocida como el marfil vegetal. Semillas recolectadas a mano en los bosques húmedos, ofreciendo una textura suave y un pulido excepcional que respeta el medio ambiente.",
     image:
-      "/Assets/Tagua_Catira.jpeg",
+      "/Assets/Tagua.png",
   },
   {
     id: "madera",
@@ -18,7 +18,7 @@ const materials = [
     description:
       "Maderas de origen sostenible y maderas rescatadas. Seleccionamos cuidadosamente piezas con vetas únicas que cuentan su propia historia a través de años de crecimiento.",
     image:
-      "/Assets/Cuadro.jpeg",
+      "/Assets/Madera.png",
   },
   {
     id: "hueso",
@@ -26,20 +26,23 @@ const materials = [
     description:
       "Una tradición milenaria reinterpretada. Transformamos subproductos naturales en obras de arte detalladas mediante técnicas de tallado de alta precisión.",
     image:
-      "/Assets/Rostro_Mano.jpeg",
+      "/Assets/Hueso.png",
   },
 ];
 
 export function MaterialsSection() {
   return (
-    <section id="materias-primas" className="py-16 bg-[#FEFAE0]">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="materias-primas" className="relative py-16">
+      {/* Smooth transition from Hero */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cream via-ivory/50 to-cream" />
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-bold text-title mb-6"
+            className="text-2xl md:text-3xl font-bold text-espresso mb-6"
           >
             La Esencia de Nuestra Tierra
           </motion.h2>
@@ -48,7 +51,7 @@ export function MaterialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-[#5D4037]"
+            className="text-lg text-walnut"
           >
             Honramos los materiales en su forma más pura. Cada pieza es un
             tributo a la naturaleza y al proceso artesanal, creando objetos con
@@ -64,7 +67,7 @@ export function MaterialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="group flex flex-col bg-[#F9F6F0] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-earth/10"
+              className="group flex flex-col bg-white/70 backdrop-blur-sm rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-sand/50"
             >
               <div className="h-64 sm:h-56 md:h-64 overflow-hidden relative">
                 <Image
@@ -77,11 +80,11 @@ export function MaterialsSection() {
               </div>
               <div className="p-8 flex-1 flex flex-col">
                 <h3
-                  className="text-xl md:text-2xl font-bold text-title mb-4"
+                  className="text-xl md:text-2xl font-bold text-espresso mb-4"
                 >
                   {material.title}
                 </h3>
-                <p className="text-title/70 text-base md:text-lg">
+                <p className="text-walnut/80 text-base md:text-lg">
                   {material.description}
                 </p>
               </div>

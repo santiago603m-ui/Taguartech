@@ -14,8 +14,8 @@ export function FloatingButtons() {
   const [formData, setFormData] = useState({
     nombres: "",
     apellidos: "",
-    correo: "",
-    descripcion: "",
+    email: "",
+    mensaje: "",
   });
   const [isSending, setIsSending] = useState(false);
 
@@ -31,8 +31,8 @@ export function FloatingButtons() {
     {
       label: "WhatsApp",
       href: whatsappUrl,
-      bg: "bg-[#BC6C25]",
-      hoverBg: "hover:bg-[#a55c1e]",
+      bg: "bg-moss-dark",
+      hoverBg: "hover:bg-moss",
       onClick: undefined,
       icon: (
         // WhatsApp SVG icon
@@ -45,8 +45,8 @@ export function FloatingButtons() {
       label: "Email",
       href: undefined,
       onClick: () => setIsModalOpen(true),
-      bg: "bg-[#5D4037]",
-      hoverBg: "hover:bg-[#4a332c]",
+      bg: "bg-walnut",
+      hoverBg: "hover:bg-espresso",
       icon: <Mail className="w-5 h-5" />,
     },
   ];
@@ -55,45 +55,17 @@ export function FloatingButtons() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleEmailSubmit = () => {
     setIsSending(true);
-
-    try {
-      const response = await fetch(`https://formsubmit.co/ajax/${GMAIL_ADDRESS}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          _subject: "Nuevo mensaje desde la página web de TAGUARTECH",
-          _template: "table",
-          Nombres: formData.nombres,
-          Apellidos: formData.apellidos,
-          Correo_Remitente: formData.correo,
-          Mensaje: formData.descripcion,
-        }),
-      });
-
-      if (response.ok) {
-        setIsSending(false);
-        setIsModalOpen(false);
-        toast.success("¡Correo enviado correctamente!", {
-          description: `Nos pondremos en contacto contigo pronto.`,
-        });
-        setFormData({ nombres: "", apellidos: "", correo: "", descripcion: "" });
-        setOpen(false);
-      } else {
-        throw new Error("Error en la respuesta del servidor");
-      }
-    } catch (error) {
-      console.error(error);
+    setTimeout(() => {
       setIsSending(false);
-      toast.error("Error al enviar el correo", {
-        description: "Por favor, inténtalo de nuevo más tarde o revisa tu conexión.",
+      setIsModalOpen(false);
+      setOpen(false);
+      toast.success("¡Formulario enviado!", {
+        description: "Revisa la nueva pestaña para confirmar el envío.",
       });
-    }
+      setFormData({ nombres: "", apellidos: "", email: "", mensaje: "" });
+    }, 1500);
   };
 
   return (
@@ -128,7 +100,7 @@ export function FloatingButtons() {
         <motion.button
           onClick={() => setOpen((prev) => !prev)}
           whileTap={{ scale: 0.92 }}
-          className="w-14 h-14 rounded-full bg-[#3E2723] hover:bg-[#2a1a17] text-white shadow-xl flex items-center justify-center transition-colors duration-300 focus:outline-none"
+          className="w-14 h-14 rounded-full bg-espresso hover:bg-walnut text-white shadow-xl flex items-center justify-center transition-colors duration-300 focus:outline-none"
           aria-label="Contactar"
         >
           <motion.div
@@ -155,71 +127,81 @@ export function FloatingButtons() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-lg bg-white rounded-3xl shadow-2xl z-50 p-6 md:p-8 overflow-hidden max-h-[90vh] overflow-y-auto"
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-lg bg-cream rounded-3xl shadow-2xl z-50 p-6 md:p-8 overflow-hidden max-h-[90vh] overflow-y-auto"
             >
               <div className="flex justify-between items-center mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-[#3E2723]">Envíanos un correo</h3>
-                  <p className="text-sm text-[#5D4037] mt-1">
-                    Destino: <span className="font-semibold text-[#BC6C25]">{GMAIL_ADDRESS}</span>
+                  <h3 className="text-2xl font-bold text-espresso">Envíanos un correo</h3>
+                  <p className="text-sm text-walnut mt-1">
+                    Destino: <span className="font-semibold text-sienna">{GMAIL_ADDRESS}</span>
                   </p>
                 </div>
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="p-2 rounded-full hover:bg-gray-100 text-gray-500 transition-colors"
+                  className="p-2 rounded-full hover:bg-sand/50 text-walnut transition-colors"
                 >
                   <X size={20} />
                 </button>
               </div>
 
-              <form onSubmit={handleEmailSubmit} className="space-y-4">
+              <form
+                action="https://api.web3forms.com/submit"
+                method="POST"
+                target="_blank"
+                onSubmit={handleEmailSubmit}
+                className="space-y-4"
+              >
+                <input type="hidden" name="access_key" value="7b120ba4-63d2-4730-9a26-549d65a30a77" />
+                <input type="hidden" name="subject" value="Nuevo mensaje desde la página web de TAGUARTECH" />
+                <input type="hidden" name="from_name" value="Taguartech Web" />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-[#3E2723] mb-1.5">Nombres</label>
+                    <label className="block text-sm font-medium text-espresso mb-1.5">Nombres</label>
                     <input
                       required
                       name="nombres"
                       value={formData.nombres}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#F9F6F0] border border-[#5D4037]/15 text-[#3E2723] text-sm focus:outline-none focus:border-[#BC6C25] focus:ring-1 focus:ring-[#BC6C25] transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-ivory border border-sand text-espresso text-sm focus:outline-none focus:border-sienna focus:ring-1 focus:ring-sienna transition-all"
                       placeholder="Tus nombres"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#3E2723] mb-1.5">Apellidos</label>
+                    <label className="block text-sm font-medium text-espresso mb-1.5">Apellidos</label>
                     <input
                       required
                       name="apellidos"
                       value={formData.apellidos}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#F9F6F0] border border-[#5D4037]/15 text-[#3E2723] text-sm focus:outline-none focus:border-[#BC6C25] focus:ring-1 focus:ring-[#BC6C25] transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-ivory border border-sand text-espresso text-sm focus:outline-none focus:border-sienna focus:ring-1 focus:ring-sienna transition-all"
                       placeholder="Tus apellidos"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#3E2723] mb-1.5">Correo Electrónico</label>
+                  <label className="block text-sm font-medium text-espresso mb-1.5">Correo Electrónico</label>
                   <input
                     required
                     type="email"
-                    name="correo"
-                    value={formData.correo}
+                    name="email"
+                    value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F9F6F0] border border-[#5D4037]/15 text-[#3E2723] text-sm focus:outline-none focus:border-[#BC6C25] focus:ring-1 focus:ring-[#BC6C25] transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-ivory border border-sand text-espresso text-sm focus:outline-none focus:border-sienna focus:ring-1 focus:ring-sienna transition-all"
                     placeholder="tu@correo.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#3E2723] mb-1.5">¿Qué necesitas?</label>
+                  <label className="block text-sm font-medium text-espresso mb-1.5">¿Qué necesitas?</label>
                   <textarea
                     required
-                    name="descripcion"
-                    value={formData.descripcion}
+                    name="mensaje"
+                    value={formData.mensaje}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F9F6F0] border border-[#5D4037]/15 text-[#3E2723] text-sm focus:outline-none focus:border-[#BC6C25] focus:ring-1 focus:ring-[#BC6C25] transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-ivory border border-sand text-espresso text-sm focus:outline-none focus:border-sienna focus:ring-1 focus:ring-sienna transition-all resize-none"
                     placeholder="Describe tu consulta, idea o pieza que te interesa..."
                   />
                 </div>
@@ -228,7 +210,7 @@ export function FloatingButtons() {
                   <button
                     type="submit"
                     disabled={isSending}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#BC6C25] hover:bg-[#a55c1e] text-white font-semibold rounded-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-sienna hover:bg-terracotta text-white font-semibold rounded-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isSending ? (
                       "Enviando..."

@@ -70,19 +70,19 @@ export default function AboutClient() {
       <section className="py-16 container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <span className="text-earth font-semibold tracking-wider text-sm uppercase mb-3 block">
+            <span className="text-sienna font-semibold tracking-wider text-sm uppercase mb-3 block">
               Nuestra Historia
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-title mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-espresso mb-6 leading-tight">
               El Arte de la<br />Materia Natural
             </h1>
-            <p className="text-moss/80 text-lg leading-relaxed mb-6">
+            <p className="text-espresso/80 text-lg leading-relaxed mb-6">
               TAGUARTE-CH nació de la convicción de que los materiales orgánicos —la tagua,
               la madera, el hueso— merecen ser tratados con el mismo respeto que la piedra
               o el metal precioso. Somos un taller artesanal fundado con la misión de
               preservar técnicas ancestrales y conectarlas con el diseño contemporáneo.
             </p>
-            <p className="text-moss/70 leading-relaxed">
+            <p className="text-espresso/60 leading-relaxed">
               Cada pieza que sale de nuestro taller es el resultado de horas de trabajo
               silencioso, de escuchar al material, de respetar sus vetas, sus imperfecciones
               y su historia. Creemos que la imperfección es la firma de lo auténtico.
@@ -102,19 +102,19 @@ export default function AboutClient() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-espresso/40 to-transparent" />
             </div>
             {/* Stats overlay */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="absolute -bottom-10 md:-bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white rounded-2xl shadow-xl p-6 md:p-5 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 z-10"
+              className="absolute -bottom-10 md:-bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-6 md:p-5 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 z-10 border border-sand/40"
             >
               {stats.map((s) => (
                 <div key={s.num} className="text-center">
-                  <p className="text-earth font-bold text-xl md:text-2xl">{s.num}</p>
-                  <p className="text-moss/70 text-[10px] md:text-xs uppercase tracking-wider leading-tight">{s.label}</p>
+                  <p className="text-sienna font-bold text-xl md:text-2xl">{s.num}</p>
+                  <p className="text-espresso/60 text-[10px] md:text-xs uppercase tracking-wider leading-tight">{s.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -123,11 +123,11 @@ export default function AboutClient() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-white mt-12">
+      <section className="py-20 bg-gradient-to-b from-cream via-ivory to-cream mt-12">
         <div className="container mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
-            <span className="text-earth font-semibold tracking-wider text-sm uppercase mb-2 block">Lo que nos guía</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-title">Nuestros Valores</h2>
+            <span className="text-sienna font-semibold tracking-wider text-sm uppercase mb-2 block">Lo que nos guía</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-espresso">Nuestros Valores</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((v, i) => {
@@ -139,13 +139,13 @@ export default function AboutClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.12 }}
-                  className="bg-white border-2 border-earth/10 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300"
+                  className="bg-white/70 backdrop-blur-sm border border-sand/40 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-[#606C38]/10 text-[#606C38] flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-sienna/10 text-sienna flex items-center justify-center mb-6">
                     <Icon size={26} strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-xl font-bold text-[#3E2723] mb-3">{v.title}</h3>
-                  <p className="text-[#5D4037] text-base leading-relaxed">{v.desc}</p>
+                  <h3 className="text-xl font-bold text-espresso mb-3">{v.title}</h3>
+                  <p className="text-walnut text-base leading-relaxed">{v.desc}</p>
                 </motion.div>
               );
             })}
@@ -154,11 +154,11 @@ export default function AboutClient() {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-[#F9F6F0]">
+      <section className="py-20 bg-gradient-to-b from-cream via-sand/20 to-ivory">
         <div className="container mx-auto px-6 md:px-12 ">
           <div className="text-center mb-16">
-            <span className="text-earth font-semibold tracking-wider text-sm uppercase mb-2 block">Cómo trabajamos</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-title">Nuestro Proceso</h2>
+            <span className="text-sienna font-semibold tracking-wider text-sm uppercase mb-2 block">Cómo trabajamos</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-espresso">Nuestro Proceso</h2>
           </div>
         </div>
         <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 ">
@@ -169,7 +169,7 @@ export default function AboutClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group flex flex-col sm:flex-row gap-6 bg-white rounded-3xl overflow-hidden border-2 border-earth/10 shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="group flex flex-col sm:flex-row gap-6 bg-white/70 backdrop-blur-sm rounded-3xl overflow-hidden border border-sand/40 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="w-full sm:w-40 h-48 sm:h-auto shrink-0 overflow-hidden relative">
                 <Image
@@ -180,9 +180,9 @@ export default function AboutClient() {
                 />
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <span className="text-[#BC6C25] font-bold text-4xl leading-none mb-3">{step.step}</span>
-                <h3 className="text-xl font-bold text-[#3E2723] mb-3">{step.title}</h3>
-                <p className="text-[#5D4037] text-base leading-relaxed">{step.desc}</p>
+                <span className="text-sienna font-bold text-4xl leading-none mb-3">{step.step}</span>
+                <h3 className="text-xl font-bold text-espresso mb-3">{step.title}</h3>
+                <p className="text-walnut text-base leading-relaxed">{step.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -196,19 +196,19 @@ export default function AboutClient() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="rounded-3xl bg-[#3E2723] text-[#F9F6F0] p-12 text-center"
+          className="rounded-3xl bg-gradient-to-br from-espresso to-walnut text-cream p-12 text-center"
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Conoce nuestra colección</h2>
-          <p className="text-[#F9F6F0]/70 mb-8 max-w-md mx-auto">
+          <p className="text-cream/60 mb-8 max-w-md mx-auto">
             Descubre las piezas que nacen de este proceso y lleva a casa un objeto con historia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/productos"
-              className="px-8 py-4 bg-[#606C38] text-white font-bold rounded-full hover:bg-[#4e5a2d] transition-all shadow-lg">
+              className="px-8 py-4 bg-sienna text-white font-bold rounded-full hover:bg-terracotta transition-all shadow-lg">
               Ver Colección
             </Link>
             <button onClick={() => window.dispatchEvent(new CustomEvent("open-email-modal"))}
-              className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition-all ">
+              className="px-8 py-4 border-2 border-cream/30 text-white font-bold rounded-full hover:bg-cream/10 transition-all ">
               Contactar
             </button>
           </div>
