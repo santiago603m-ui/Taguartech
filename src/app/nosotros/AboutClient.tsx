@@ -33,25 +33,25 @@ const processSteps = [
     step: "01",
     title: "Selección de Materia Prima",
     desc: "Recorremos bosques y comunidades para encontrar las mejores semillas de tagua, maderas nobles y huesos de origen natural.",
-    image: "/Assets/Imagen_Corpo.jpeg",
+    image: "/Assets/Nosotros/Materiales_Juntos.png",
   },
   {
     step: "02",
     title: "Diseño y Boceto",
     desc: "Cada pieza nace como un dibujo a mano. El artesano traza la forma que siente en el material antes de poner una herramienta sobre él.",
-    image: "/Assets/Imagen_Corpo_2.jpeg",
+    image: "/Assets/Nosotros/Escultura_Gato.jpg",
   },
   {
     step: "03",
     title: "Tallado Artesanal",
     desc: "Con gubias, formones y lijas progresivas, el artesano da forma a la pieza respetando las vetas y texturas naturales del material.",
-    image: "/Assets/Nosotros_Imagen_3.jpeg",
+    image: "/Assets/Nosotros/Nosotros_Imagen_2.jpg",
   },
   {
     step: "04",
     title: "Acabado y Entrega",
     desc: "Pulido, encerado y control de calidad final. La pieza se empaca en materiales reciclados y viaja hacia su nuevo hogar.",
-    image: "/Assets/Nosotros_Imagen_2.jpg",
+    image: "/Assets/Nosotros/Escultura_Gato.jpg",
   },
 ];
 
@@ -95,13 +95,21 @@ export default function AboutClient() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="rounded-3xl overflow-hidden shadow-2xl h-[480px] relative">
-              <Image
-                src="/Assets/Nosotros_Imagen.jpg"
-                alt="Artesano en el taller"
-                fill
-                className="object-cover"
-              />
+            <div className="rounded-3xl overflow-hidden shadow-2xl h-[480px] relative bg-espresso/10">
+
+              {/* --- INICIO DEL CAMBIO --- */}
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src="/Assets/Hector_Trabajo.mp4" type="video/mp4" />
+                Tu navegador no soporta la reproducción de video.
+              </video>
+              {/* --- FIN DEL CAMBIO --- */}
+
               <div className="absolute inset-0 bg-gradient-to-t from-espresso/40 to-transparent" />
             </div>
             {/* Stats overlay */}

@@ -55,8 +55,8 @@ export function Hero() {
         >
           <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl ">
             <Image
-              src="/Assets/Inicio/tagua_catira.jpeg"
-              alt="Artesano trabajando la madera"
+              src="/Assets/Inicio/Tagua_Carita.jpg"
+              alt="TaguaCatira"
               fill
               className="object-cover object-center "
               priority

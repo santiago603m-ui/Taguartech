@@ -19,7 +19,7 @@ const services = [
     title: "Cursos y Talleres",
     description:
       "Aprende el arte del tallado y el manejo de materiales orgánicos con nuestros expertos en el oficio.",
-    image: "/Assets/Nosotros/Imagen_Corpo_2.jpeg",
+    image: "/Assets/Nosotros/Imagen_Corpo_2.jpg",
     action: "Consultar Fechas",
     href: "/contacto",
   },
@@ -28,7 +28,7 @@ const services = [
     title: "Diseño a Medida",
     description:
       "Asesoría personalizada para crear piezas únicas adaptadas a tus necesidades o proyectos de diseño interior.",
-    image: "/Assets/Nosotros/Nosotros_imagen_2.jpg",
+    image: "/Assets/Servicios/Hector_trabajo.jpg",
     action: "Agendar Cita",
     href: "/contacto",
   },

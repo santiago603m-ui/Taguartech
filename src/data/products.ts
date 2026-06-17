@@ -23,7 +23,7 @@ export const products: Product[] = [
     price: "$350.000",
     priceNum: 350000,
     badge: "Exclusivo",
-    image: "/Assets/Ajedrez_Cajonera.jpg",
+    image: "/Assets/Coleccion/Ajedrez_Cajonera.jpg",
     description: "Elegante tablero de ajedrez fabricado en madera con una práctica cajonera integrada. Las 32 piezas están torneadas y talladas a mano en semilla de tagua, aprovechando el contraste natural de su corteza para diferenciar los bandos, creando una obra de arte interactiva.",
     shortDescription: "Tablero de madera con cajonera y piezas talladas a mano en tagua.",
     details: [
@@ -43,7 +43,7 @@ export const products: Product[] = [
     price: "$120.000",
     priceNum: 120000,
     badge: "Artesanal",
-    image: "/Assets/Bandeja_Copas.jpg",
+    image: "/Assets/Inicio/Bandeja_Copas.jpg",
     description: "Bandeja tallada siguiendo la forma natural de la madera, elevada sobre resistentes soportes de semilla de tagua. Incluye un juego de delicadas copas o cuencos elaborados en la misma semilla, conservando detalles rústicos de la corteza original.",
     shortDescription: "Bandeja de madera orgánica con soportes y copas hechas de semilla de tagua.",
     details: [
@@ -63,7 +63,7 @@ export const products: Product[] = [
     price: "$95.000",
     priceNum: 95000,
     badge: "Detallado",
-    image: "/Assets/Colibri_Dos_Costados.jpg",
+    image: "/Assets/Coleccion/Colibri_Dos_Costados.jpg",
     description: "Fina escultura de un colibrí capturado en pleno vuelo, tallada completamente a mano. Destacan los precisos micro-detalles texturizados en el plumaje de sus alas y cuerpo, demostrando un alto nivel de maestría artesanal sobre una pieza continua.",
     shortDescription: "Colibrí tallado a mano en tagua pura con detalles finos en el plumaje.",
     details: [
@@ -83,7 +83,7 @@ export const products: Product[] = [
     price: "$185.000",
     priceNum: 185000,
     badge: "Obra de Arte",
-    image: "/Assets/Colibri_Orquidea.jpg",
+    image: "/Assets/Coleccion/Colibri_Orquidea.jpg",
     description: "Composición magistral que representa la interacción de la fauna y flora local. Un colibrí finamente tallado se suspende alimentándose de una orquídea detallada. Toda la estructura reposa de forma equilibrada sobre una base firme de semillas de tagua en su estado crudo.",
     shortDescription: "Composición escultórica de colibrí y orquídea sobre base de tagua rústica.",
     details: [
@@ -103,7 +103,7 @@ export const products: Product[] = [
     price: "$110.000",
     priceNum: 110000,
     badge: "Elegante",
-    image: "/Assets/Orquidea_Dos_Costados.jpg",
+    image: "/Assets/Coleccion/Orquidea_Dos_Costados.jpg",
     description: "Hermosa representación de una orquídea esculpida meticulosamente. El tallo largo y las hojas abiertas exhiben la suavidad del material pulido, montado sobre una sólida base conformada por nueces de tagua que conservan su corteza moteada característica.",
     shortDescription: "Escultura botánica de orquídea con pétalos detallados sobre base rústica.",
     details: [
@@ -123,7 +123,7 @@ export const products: Product[] = [
     price: "$220.000",
     priceNum: 220000,
     badge: "Personalizado",
-    image: "/Assets/Rostro_Mano.jpeg",
+    image: "/Assets/Coleccion/Rostro_Mano.jpg",
     description: "Impresionante busto tallado que muestra las facciones de un rostro humano con sorprendente nivel de realismo y expresividad. El rostro, completamente pulido, emerge y se funde suavemente con la base de la semilla, conservando su textura natural oscura para un contraste artístico imponente.",
     shortDescription: "Retrato humano tallado meticulosamente, conservando la corteza en la base.",
     details: [
@@ -143,7 +143,7 @@ export const products: Product[] = [
     price: "$150.000",
     priceNum: 150000,
     badge: "Miniatura",
-    image: "/Assets/Inicio/tagua_Catira.jpeg",
+    image: "/Assets/Coleccion/tagua_Carita.jpg",
     description: "Delicada micro-escultura del perfil de un rostro humano trabajada en una pequeña fracción de semilla de tagua. Las proporciones exactas y el increíble nivel de detalle en tan poco espacio exigen el uso de lentes de aumento, convirtiéndola en una verdadera joya del tallado.",
     shortDescription: "Micro-escultura de perfil humano trabajada con altísima precisión geométrica.",
     details: [
