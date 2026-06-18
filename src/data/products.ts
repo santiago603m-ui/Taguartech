@@ -143,7 +143,7 @@ export const products: Product[] = [
     price: "$150.000",
     priceNum: 150000,
     badge: "Miniatura",
-    image: "/Assets/Coleccion/tagua_Carita.jpg",
+    image: "/Assets/Coleccion/Tagua_Carita.jpg",
     description: "Delicada micro-escultura del perfil de un rostro humano trabajada en una pequeña fracción de semilla de tagua. Las proporciones exactas y el increíble nivel de detalle en tan poco espacio exigen el uso de lentes de aumento, convirtiéndola en una verdadera joya del tallado.",
     shortDescription: "Micro-escultura de perfil humano trabajada con altísima precisión geométrica.",
     details: [

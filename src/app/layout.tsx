@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   description: "Expertos en soluciones tecnológicas innovadoras, desarrollo de software y servicios digitales de alta calidad.",
   icons: {
-    icon: "/assets/Logo_Mano.png",
+    icon: "/Assets/Inicio/Logo_Mano.png",
   },
   openGraph: {
     title: "Taguarte-CH",

@@ -39,7 +39,9 @@ const processSteps = [
     step: "02",
     title: "Diseño y Boceto",
     desc: "Cada pieza nace como un dibujo a mano. El artesano traza la forma que siente en el material antes de poner una herramienta sobre él.",
-    image: "/Assets/Nosotros/Escultura_Gato.jpg",
+    image: "/Assets/Nosotros/GatoBoceto.jpg",
+    imageClass: "scale-[1.75] group-hover:scale-[1.85]",
+    imageStyle: { objectPosition: "100% 25%" },
   },
   {
     step: "03",
@@ -56,9 +58,9 @@ const processSteps = [
 ];
 
 const stats = [
-  { num: "12+", label: "Años de oficio" },
-  { num: "500+", label: "Piezas creadas" },
-  { num: "3", label: "Materiales propios" },
+  { num: "38", label: "Años de taller" },
+  { num: "109", label: "Años de tradición" },
+  { num: "7", label: "Materiales utilizados" },
   { num: "100%", label: "Hecho a mano" },
 ];
 
@@ -77,15 +79,10 @@ export default function AboutClient() {
               El Arte de la<br />Materia Natural
             </h1>
             <p className="text-espresso/80 text-lg leading-relaxed mb-6">
-              TAGUARTE-CH nació de la convicción de que los materiales orgánicos —la tagua,
-              la madera, el hueso— merecen ser tratados con el mismo respeto que la piedra
-              o el metal precioso. Somos un taller artesanal fundado con la misión de
-              preservar técnicas ancestrales y conectarlas con el diseño contemporáneo.
+              Taguarte-CH es un taller que lleva 38 años de trabajo constante dedicado a la transformación artesanal de la tagua, maderas, hueso, cáscara de coco, totumo, cacho y metales. Esta labor constituye una tradición y patrimonio cultural de más de 109 años en Chiquinquirá.
             </p>
             <p className="text-espresso/60 leading-relaxed">
-              Cada pieza que sale de nuestro taller es el resultado de horas de trabajo
-              silencioso, de escuchar al material, de respetar sus vetas, sus imperfecciones
-              y su historia. Creemos que la imperfección es la firma de lo auténtico.
+              Nuestros procesos y técnicas son básicamente artesanales. Con nuestro oficio buscamos mantener viva la tradición y demostrar a las nuevas generaciones la importancia y dignidad de nuestra labor.
             </p>
           </motion.div>
 
@@ -97,18 +94,13 @@ export default function AboutClient() {
           >
             <div className="rounded-3xl overflow-hidden shadow-2xl h-[480px] relative bg-espresso/10">
 
-              {/* --- INICIO DEL CAMBIO --- */}
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              >
-                <source src="/Assets/Hector_Trabajo.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-              </video>
-              {/* --- FIN DEL CAMBIO --- */}
+              <Image
+                src="/Assets/Nosotros/Nosotros_Imagen.jpg"
+                alt="Sobre Nosotros - Taller artesanal"
+                fill
+                priority
+                className="object-cover"
+              />
 
               <div className="absolute inset-0 bg-gradient-to-t from-espresso/40 to-transparent" />
             </div>
@@ -184,7 +176,9 @@ export default function AboutClient() {
                   src={step.image}
                   alt={step.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className={`object-cover transition-transform duration-500 ${step.imageClass || "group-hover:scale-110"
+                    }`}
+                  style={step.imageStyle}
                 />
               </div>
               <div className="p-8 flex flex-col justify-center">

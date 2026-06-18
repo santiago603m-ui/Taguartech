@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Twitter } from "lucide-react";
+import { Instagram } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -21,25 +21,13 @@ export function Footer() {
         {/* Social Icons */}
         <div className="flex space-x-4">
           <Link
-            href="#"
+            href="https://www.instagram.com/taguartech?igsh=MXFxbXl2dzRrajNzNA=="
             aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-sienna transition-colors duration-300"
           >
             <Instagram size={17} />
-          </Link>
-          <Link
-            href="#"
-            aria-label="Facebook"
-            className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-sienna transition-colors duration-300"
-          >
-            <Facebook size={17} />
-          </Link>
-          <Link
-            href="#"
-            aria-label="Twitter"
-            className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-sienna transition-colors duration-300"
-          >
-            <Twitter size={17} />
           </Link>
         </div>
 

@@ -26,9 +26,7 @@ export function Hero() {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-espresso/70 mb-6 md:mb-8 leading-relaxed">
-            Descubre piezas únicas talladas a mano. Unimos el
-            arte tradicional con el diseño contemporáneo a
-            través de tagua, madera y hueso.
+            Con 38 años de trayectoria en el tallado artesanal, en Taguarte-CH transformamos materiales como la tagua —patrimonio y tradición de 109 años en Chiquinquirá—, maderas, hueso, coco, cacho, totumo y metales en obras únicas. Nuestro oficio busca mantener viva la tradición y demostrar a las nuevas generaciones el valor y dignidad de nuestra labor hecha a mano.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
