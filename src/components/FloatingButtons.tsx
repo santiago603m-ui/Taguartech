@@ -55,17 +55,49 @@ export function FloatingButtons() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleEmailSubmit = () => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setIsSending(true);
-    setTimeout(() => {
-      setIsSending(false);
-      setIsModalOpen(false);
-      setOpen(false);
-      toast.success("¡Formulario enviado!", {
-        description: "Revisa la nueva pestaña para confirmar el envío.",
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "499a7690-a59b-42c7-a8b0-14e6285be742",
+          subject: "Nuevo mensaje desde la página web de TAGUARTECH",
+          from_name: "Taguartech Web",
+          nombres: formData.nombres,
+          apellidos: formData.apellidos,
+          email: formData.email,
+          mensaje: formData.mensaje,
+        }),
       });
-      setFormData({ nombres: "", apellidos: "", email: "", mensaje: "" });
-    }, 1500);
+
+      const result = await response.json();
+      
+      if (result.success) {
+        toast.success("¡Formulario enviado!", {
+          description: "Nos pondremos en contacto contigo pronto.",
+        });
+        setFormData({ nombres: "", apellidos: "", email: "", mensaje: "" });
+        setIsModalOpen(false);
+        setOpen(false);
+      } else {
+        toast.error("Error al enviar", {
+          description: "Por favor, intenta nuevamente más tarde.",
+        });
+      }
+    } catch (error) {
+      toast.error("Error al enviar", {
+        description: "Hubo un problema de conexión. Intenta nuevamente.",
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -145,15 +177,9 @@ export function FloatingButtons() {
               </div>
 
               <form
-                action="https://api.web3forms.com/submit"
-                method="POST"
-                target="_blank"
                 onSubmit={handleEmailSubmit}
                 className="space-y-4"
               >
-                <input type="hidden" name="access_key" value="7b120ba4-63d2-4730-9a26-549d65a30a77" />
-                <input type="hidden" name="subject" value="Nuevo mensaje desde la página web de TAGUARTECH" />
-                <input type="hidden" name="from_name" value="Taguartech Web" />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
