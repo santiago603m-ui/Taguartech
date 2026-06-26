@@ -6,7 +6,7 @@ import { MessageCircle, Mail, X, Send } from "lucide-react";
 import { toast } from "sonner";
 
 const WHATSAPP_NUMBER = "1234567890";
-const GMAIL_ADDRESS = "santiago603m@gmail.com";
+const GMAIL_ADDRESS = "taguartech9@gmail.com";
 
 export function FloatingButtons() {
   const [open, setOpen] = useState(false);
